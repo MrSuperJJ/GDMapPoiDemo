@@ -105,10 +105,6 @@
 				46FAE1171D11402500EF950D /* AppDelegate.m */,
 				46FAE1191D11402500EF950D /* ViewController.h */,
 				46FAE11A1D11402500EF950D /* ViewController.m */,
-				46FAE11C1D11402500EF950D /* Main.storyboard */,
-				46FAE11F1D11402500EF950D /* Assets.xcassets */,
-				46FAE1211D11402500EF950D /* LaunchScreen.storyboard */,
-				46FAE1241D11402500EF950D /* Info.plist */,
 				46FAE1131D11402500EF950D /* Supporting Files */,
 			);
 			path = GDMapPoiDemo;
@@ -117,7 +113,11 @@
 		46FAE1131D11402500EF950D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46FAE11F1D11402500EF950D /* Assets.xcassets */,
+				46FAE1241D11402500EF950D /* Info.plist */,
 				46FAE1141D11402500EF950D /* main.m */,
+				46FAE11C1D11402500EF950D /* Main.storyboard */,
+				46FAE1211D11402500EF950D /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -499,6 +499,7 @@
 				46FAE13F1D11402600EF950D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46FAE1401D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +508,7 @@
 				46FAE1421D11402600EF950D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46FAE1431D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +517,7 @@
 				46FAE1451D11402600EF950D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
