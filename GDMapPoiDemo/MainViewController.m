@@ -178,7 +178,7 @@
 #pragma mark - SearchResultTableVCDelegate
 - (void)setSelectedLocationWithLocation:(AMapPOI *)poi
 {
-    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude,poi.location.longitude) animated:YES];
+    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude,poi.location.longitude) animated:NO];
     _searchController.searchBar.text = @"";
 }
 
@@ -204,6 +204,7 @@
     UIImage *image = [UIImage imageNamed:@"centerMarker"];
     _centerMaker = [[UIImageView alloc] initWithImage:image];
     _centerMaker.frame = CGRectMake(self.view.frame.size.width/2-image.size.width/2, _mapView.bounds.size.height/2-image.size.height, image.size.width, image.size.height);
+    _centerMaker.center = CGPointMake(self.view.frame.size.width / 2, (CGRectGetHeight(_mapView.bounds) -  _centerMaker.frame.size.height - TITLE_HEIGHT) * 0.5);
     [self.view addSubview:_centerMaker];
 }
 

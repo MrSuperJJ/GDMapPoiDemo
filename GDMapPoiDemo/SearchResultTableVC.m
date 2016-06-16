@@ -8,6 +8,7 @@
 
 #import "SearchResultTableVC.h"
 #import <AMapSearchKit/AMapSearchKit.h>
+#import "MJRefresh.h"
 
 @interface SearchResultTableVC() <UISearchResultsUpdating,AMapSearchDelegate>
 
@@ -18,26 +19,48 @@
     NSString *_city;
     // 搜索key
     NSString *_searchString;
+    // 搜索页数
+    NSInteger searchPage;
     // 搜索API
     AMapSearchAPI *_searchAPI;
     // 搜索结果数组
     NSMutableArray *_searchResultArray;
+    // 下拉更多请求数据的标记
+    BOOL isFromMoreLoadRequest;
 }
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     _searchString = searchController.searchBar.text;
+    searchPage = 1;
     [self searchPoiBySearchString:_searchString];
 }
 
 #pragma mark - AMapSearchDelegate
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
-    if (response.count > 0) {
-        _searchResultArray = [response.pois mutableCopy];
-        [self.tableView reloadData];
+    // 判断是否从更多拉取
+    if (isFromMoreLoadRequest) {
+        isFromMoreLoadRequest = NO;
     }
+    else{
+        [_searchResultArray removeAllObjects];
+        // 刷新后TableView返回顶部
+        [self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+    }
+    // 刷新完成,没有数据时不显示footer
+    if (response.pois.count == 0) {
+        self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+    }
+    else {
+        self.tableView.mj_footer.state = MJRefreshStateIdle;
+        // 添加数据并刷新TableView
+        [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
+            [_searchResultArray addObject:obj];
+        }];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -60,7 +83,7 @@
     [text addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, text.length)];
     //高亮
     NSRange textHighlightRange = [poi.name rangeOfString:_searchString];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:textHighlightRange];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:textHighlightRange];
     cell.textLabel.attributedText = text;
     
     NSMutableAttributedString *detailText = [[NSMutableAttributedString alloc] initWithString:poi.address];
@@ -68,7 +91,7 @@
     [detailText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, detailText.length)];
     //高亮
     NSRange detailTextHighlightRange = [poi.address rangeOfString:_searchString];
-    [detailText addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:detailTextHighlightRange];
+    [detailText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:detailTextHighlightRange];
     cell.detailTextLabel.attributedText = detailText;
     return cell;
 }
@@ -77,7 +100,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.delegate setSelectedLocationWithLocation:_searchResultArray[indexPath.row]];
+    if ([self.delegate respondsToSelector:@selector(setSelectedLocationWithLocation:)]) {
+        [self.delegate setSelectedLocationWithLocation:_searchResultArray[indexPath.row]];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -89,7 +114,15 @@
     request.keywords = searchString;
     request.city = _city;
     request.cityLimit = YES;
+    request.page = searchPage;
     [_searchAPI AMapPOIKeywordsSearch:request];
+}
+
+- (void)loadMoreData
+{
+    searchPage++;
+    isFromMoreLoadRequest = YES;
+    [self searchPoiBySearchString:_searchString];
 }
 
 #pragma mark - 初始化
@@ -100,8 +133,10 @@
     _searchAPI.delegate = self;
     
     _searchResultArray = [NSMutableArray array];
-//    self.tableView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height);
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    // 解决tableview无法正常显示的问题
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 - (void)setSearchCity:(NSString *)city
