@@ -8,10 +8,8 @@
 
 #import "LocationDetailVC.h"
 #import <MAMapKit/MAMapKit.h>
+#import "appDefine.h"
 
-#define SCREEN_WIDTH                    CGRectGetWidth([UIScreen mainScreen].bounds)
-#define SCREEN_HEIGHT                   CGRectGetHeight([UIScreen mainScreen].bounds)
-#define TITLE_HEIGHT                    64.f
 #define LABEL_HEIGHT                    80
 
 @interface LocationDetailVC () <MAMapViewDelegate>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4609930B1D11941C009A4841 /* SearchResultTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4609930A1D11941C009A4841 /* SearchResultTableVC.m */; };
 		46FAE1151D11402500EF950D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1141D11402500EF950D /* main.m */; };
 		46FAE1181D11402500EF950D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1171D11402500EF950D /* AppDelegate.m */; };
 		46FAE11E1D11402500EF950D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FAE11C1D11402500EF950D /* Main.storyboard */; };
@@ -47,7 +48,9 @@
 		46FAE19F1D1142F700EF950D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE19E1D1142F700EF950D /* Security.framework */; };
 		46FAE1A71D11438100EF950D /* LocationDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1A21D11438100EF950D /* LocationDetailVC.m */; };
 		46FAE1A81D11438100EF950D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1A41D11438100EF950D /* MainViewController.m */; };
-		46FAE1A91D11438100EF950D /* PlaceAroundTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1A61D11438100EF950D /* PlaceAroundTableView.m */; };
+		46FAE1A91D11438100EF950D /* MapPoiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1A61D11438100EF950D /* MapPoiTableView.m */; };
+		46FAE1B21D114A9000EF950D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1B11D114A9000EF950D /* Reachability.m */; };
+		46FAE1B61D114B3C00EF950D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1B51D114B3C00EF950D /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460993091D11941C009A4841 /* SearchResultTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableVC.h; sourceTree = "<group>"; };
+		4609930A1D11941C009A4841 /* SearchResultTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableVC.m; sourceTree = "<group>"; };
 		46FAE1101D11402500EF950D /* GDMapPoiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDMapPoiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FAE1141D11402500EF950D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46FAE1161D11402500EF950D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,8 +142,13 @@
 		46FAE1A21D11438100EF950D /* LocationDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailVC.m; sourceTree = "<group>"; };
 		46FAE1A31D11438100EF950D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		46FAE1A41D11438100EF950D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		46FAE1A51D11438100EF950D /* PlaceAroundTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAroundTableView.h; sourceTree = "<group>"; };
-		46FAE1A61D11438100EF950D /* PlaceAroundTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAroundTableView.m; sourceTree = "<group>"; };
+		46FAE1A51D11438100EF950D /* MapPoiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoiTableView.h; sourceTree = "<group>"; };
+		46FAE1A61D11438100EF950D /* MapPoiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoiTableView.m; sourceTree = "<group>"; };
+		46FAE1AA1D1147F400EF950D /* appDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appDefine.h; sourceTree = "<group>"; };
+		46FAE1B01D114A9000EF950D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		46FAE1B11D114A9000EF950D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		46FAE1B41D114B3C00EF950D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		46FAE1B51D114B3C00EF950D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				46FAE1121D11402500EF950D /* GDMapPoiDemo */,
-				46FAE12C1D11402600EF950D /* GDMapPoiDemoTests */,
 				46FAE1371D11402600EF950D /* GDMapPoiDemoUITests */,
 				46FAE1111D11402500EF950D /* Products */,
 			);
@@ -207,8 +216,11 @@
 				46FAE1A21D11438100EF950D /* LocationDetailVC.m */,
 				46FAE1A31D11438100EF950D /* MainViewController.h */,
 				46FAE1A41D11438100EF950D /* MainViewController.m */,
-				46FAE1A51D11438100EF950D /* PlaceAroundTableView.h */,
-				46FAE1A61D11438100EF950D /* PlaceAroundTableView.m */,
+				46FAE1A51D11438100EF950D /* MapPoiTableView.h */,
+				46FAE1A61D11438100EF950D /* MapPoiTableView.m */,
+				460993091D11941C009A4841 /* SearchResultTableVC.h */,
+				4609930A1D11941C009A4841 /* SearchResultTableVC.m */,
+				46FAE1AA1D1147F400EF950D /* appDefine.h */,
 				46FAE1471D11424800EF950D /* lib */,
 				46FAE1131D11402500EF950D /* Supporting Files */,
 			);
@@ -233,7 +245,8 @@
 				46FAE12D1D11402600EF950D /* GDMapPoiDemoTests.m */,
 				46FAE12F1D11402600EF950D /* Info.plist */,
 			);
-			path = GDMapPoiDemoTests;
+			name = GDMapPoiDemoTests;
+			path = ../../GDMapPoiDemoTests;
 			sourceTree = "<group>";
 		};
 		46FAE1371D11402600EF950D /* GDMapPoiDemoUITests */ = {
@@ -248,6 +261,9 @@
 		46FAE1471D11424800EF950D /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				46FAE1B31D114B3C00EF950D /* MBProgressHUD */,
+				46FAE1AF1D114A9000EF950D /* Reachability */,
+				46FAE12C1D11402600EF950D /* GDMapPoiDemoTests */,
 				46FAE1A01D11438100EF950D /* APIKey.h */,
 				46FAE19C1D1142F200EF950D /* libc++.tbd */,
 				46FAE19A1D1142E700EF950D /* libz.tbd */,
@@ -357,6 +373,24 @@
 				46FAE16D1D11426C00EF950D /* MJRefreshStateHeader.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		46FAE1AF1D114A9000EF950D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				46FAE1B01D114A9000EF950D /* Reachability.h */,
+				46FAE1B11D114A9000EF950D /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		46FAE1B31D114B3C00EF950D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				46FAE1B41D114B3C00EF950D /* MBProgressHUD.h */,
+				46FAE1B51D114B3C00EF950D /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +529,7 @@
 			files = (
 				46FAE1811D11426C00EF950D /* MJRefreshAutoNormalFooter.m in Sources */,
 				46FAE1801D11426C00EF950D /* MJRefreshAutoGifFooter.m in Sources */,
+				4609930B1D11941C009A4841 /* SearchResultTableVC.m in Sources */,
 				46FAE1861D11426C00EF950D /* MJRefreshGifHeader.m in Sources */,
 				46FAE1181D11402500EF950D /* AppDelegate.m in Sources */,
 				46FAE17D1D11426C00EF950D /* MJRefreshComponent.m in Sources */,
@@ -503,14 +538,16 @@
 				46FAE18C1D11426C00EF950D /* UIScrollView+MJRefresh.m in Sources */,
 				46FAE18B1D11426C00EF950D /* UIScrollView+MJExtension.m in Sources */,
 				46FAE18D1D11426C00EF950D /* UIView+MJExtension.m in Sources */,
+				46FAE1B21D114A9000EF950D /* Reachability.m in Sources */,
 				46FAE1A81D11438100EF950D /* MainViewController.m in Sources */,
 				46FAE17B1D11426C00EF950D /* MJRefreshAutoFooter.m in Sources */,
 				46FAE1A71D11438100EF950D /* LocationDetailVC.m in Sources */,
 				46FAE1831D11426C00EF950D /* MJRefreshBackGifFooter.m in Sources */,
 				46FAE1871D11426C00EF950D /* MJRefreshNormalHeader.m in Sources */,
 				46FAE1821D11426C00EF950D /* MJRefreshAutoStateFooter.m in Sources */,
+				46FAE1B61D114B3C00EF950D /* MBProgressHUD.m in Sources */,
 				46FAE17C1D11426C00EF950D /* MJRefreshBackFooter.m in Sources */,
-				46FAE1A91D11438100EF950D /* PlaceAroundTableView.m in Sources */,
+				46FAE1A91D11438100EF950D /* MapPoiTableView.m in Sources */,
 				46FAE1151D11402500EF950D /* main.m in Sources */,
 				46FAE18A1D11426C00EF950D /* MJRefreshConst.m in Sources */,
 				46FAE1841D11426C00EF950D /* MJRefreshBackNormalFooter.m in Sources */,

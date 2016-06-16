@@ -9,16 +9,17 @@
 #import "MainViewController.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-#import "PlaceAroundTableView.h"
+#import "MapPoiTableView.h"
 #import "LocationDetailVC.h"
+#import "SearchResultTableVC.h"
+#import "appDefine.h"
+#import "Reachability.h"
+#import "MBProgressHUD.h"
 
-#define SCREEN_WIDTH                    CGRectGetWidth([UIScreen mainScreen].bounds)
-#define SCREEN_HEIGHT                   CGRectGetHeight([UIScreen mainScreen].bounds)
-#define TITLE_HEIGHT                    64.f
 #define CELL_HEIGHT                     55.f
 #define CELL_COUNT                      5
 
-@interface MainViewController () <MAMapViewDelegate,PlaceAroundTableViewDelegate>
+@interface MainViewController () <MAMapViewDelegate,MapPoiTableViewDelegate,AMapSearchDelegate,UISearchBarDelegate,SearchResultTableVCDelegate>
 
 @end
 
@@ -28,7 +29,7 @@
     // 地图中心点的标记
     UIImageView *_centerMaker;
     // 地图中心点POI列表
-    PlaceAroundTableView *_tableView;
+    MapPoiTableView *_tableView;
     // 高德API不支持定位开关，需要自己设置
     UIButton *_locationBtn;
     UIImage *_imageLocated;
@@ -43,23 +44,34 @@
 
     // 禁止连续点击两次
     BOOL _isMapViewRegionChangedFromTableView;
+    
+    MBProgressHUD *_HUD;
+    
+    UISearchController *_searchController;
+    UITableView *_searchTableView;
+    SearchResultTableVC *_searchResultTableVC;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"地图";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendLocation)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    // 使用通知中心监听kReachabilityChangedNotification通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification object:nil];
+    // 获取访问指定站点的Reachability对象
+    Reachability *reach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
+    // 让Reachability对象开启被监听状态
+    [reach startNotifier];
     
     [self initMapView];
     [self initCenterMarker];
     [self initLocationButton];
     [self initTableView];
     [self initSearch];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - MAMapViewDelegate
@@ -80,15 +92,16 @@
         [self searchPoiByAMapGeoPoint:point];
         // 范围移动时当前页面数重置
         searchPage = 1;
-        NSLog(@"%lf,%lf",_mapView.centerCoordinate.latitude,_mapView.centerCoordinate.longitude);
-        NSLog(@"%lf,%lf",_mapView.userLocation.coordinate.latitude,_mapView.userLocation.coordinate.longitude);
-        // 设置定位图标
-        if (fabs(_mapView.centerCoordinate.latitude-_mapView.userLocation.coordinate.latitude) < 0.0001f && fabs(_mapView.centerCoordinate.longitude - _mapView.userLocation.coordinate.longitude) < 0.0001f) {
-            [_locationBtn setImage:_imageLocated forState:UIControlStateNormal];
-        }
-        else {
-            [_locationBtn setImage:_imageNotLocate forState:UIControlStateNormal];
-        }
+
+//        NSLog(@"%lf,%lf",_mapView.centerCoordinate.latitude,_mapView.centerCoordinate.longitude);
+//        NSLog(@"%lf,%lf",_mapView.userLocation.coordinate.latitude,_mapView.userLocation.coordinate.longitude);
+//        // 设置定位图标
+//        if (fabs(_mapView.centerCoordinate.latitude-_mapView.userLocation.coordinate.latitude) < 0.0001f && fabs(_mapView.centerCoordinate.longitude - _mapView.userLocation.coordinate.longitude) < 0.0001f) {
+//            [_locationBtn setImage:_imageLocated forState:UIControlStateNormal];
+//        }
+//        else {
+//            [_locationBtn setImage:_imageNotLocate forState:UIControlStateNormal];
+//        }
     }
     _isMapViewRegionChangedFromTableView = NO;
 }
@@ -150,6 +163,26 @@
     [_mapView setCenterCoordinate:location animated:YES];
 }
 
+- (void)setSendButtonEnabledAfterLoadFinished
+{
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+
+- (void)setCurrentCity:(NSString *)city
+{
+    [_searchResultTableVC setSearchCity:city];
+}
+
+#pragma mark - UISearchBarDelegate
+
+#pragma mark - SearchResultTableVCDelegate
+- (void)setSelectedLocationWithLocation:(AMapPOI *)poi
+{
+    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude,poi.location.longitude) animated:YES];
+    _searchController.searchBar.text = @"";
+}
+
+
 #pragma mark - 初始化
 - (void)initMapView
 {
@@ -176,7 +209,7 @@
 
 - (void)initTableView
 {
-    _tableView = [[PlaceAroundTableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_mapView.frame), SCREEN_WIDTH, CELL_HEIGHT*CELL_COUNT + TITLE_HEIGHT)];
+    _tableView = [[MapPoiTableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_mapView.frame)-TITLE_HEIGHT, SCREEN_WIDTH, CELL_HEIGHT*CELL_COUNT + TITLE_HEIGHT)];
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
 }
@@ -199,6 +232,16 @@
     searchPage = 1;
     _searchAPI = [[AMapSearchAPI alloc] init];
     _searchAPI.delegate = _tableView;
+    
+    _searchResultTableVC = [[SearchResultTableVC alloc] init];
+    _searchResultTableVC.delegate = self;
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:_searchResultTableVC];
+    _searchController.searchResultsUpdater = _searchResultTableVC;
+    [self.view addSubview:_searchController.searchBar];
+    _searchController.searchBar.delegate = self;
+    // 解决searchbar无法置顶的问题
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
 }
 
 #pragma mark - Action
@@ -240,6 +283,49 @@
     // 返回扩展信息
     regeo.requireExtension = YES;
     [_searchAPI AMapReGoecodeSearch:regeo];
+}
+
+#pragma mark - 网络环境监听
+- (void)reachabilityChanged:(NSNotification *)note{
+    // 通过通知对象获取被监听的Reachability对象
+    Reachability *curReach = [note object];
+    // 获取Reachability对象的网络状态
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    if (status == ReachableViaWWAN || status == ReachableViaWiFi){
+        NSLog(@"Reachable");
+        if (isFirstLocated) {
+            AMapGeoPoint *point = [AMapGeoPoint locationWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude];
+            [self searchReGeocodeWithAMapGeoPoint:point];
+            [self searchPoiByAMapGeoPoint:point];
+            searchPage = 1;
+        }
+    }
+    else if (status == NotReachable){
+        NSLog(@"notReachable");
+        [self showAllTextDialog:@"网络错误，请检查网络设置"];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+}
+
+// 显示文本对话框
+-(void)showAllTextDialog:(NSString *)str
+{
+    _HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_HUD];
+    _HUD.labelText = str;
+    _HUD.mode = MBProgressHUDModeText;
+    
+    //指定距离中心点的X轴和Y轴的位置，不指定则在屏幕中间显示
+    _HUD.yOffset = 100.0f;
+    //    _HUD.xOffset = 100.0f;
+    
+    [_HUD showAnimated:YES whileExecutingBlock:^{
+        sleep(1);
+    } completionBlock:^{
+        [_HUD removeFromSuperview];
+        _HUD = nil;
+    }];
+    
 }
 
 @end

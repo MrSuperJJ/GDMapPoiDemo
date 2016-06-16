@@ -6,12 +6,12 @@
 //  Copyright © 2016年 Mr.JJ. All rights reserved.
 //
 
-#import "PlaceAroundTableView.h"
+#import "MapPoiTableView.h"
 #import "MJRefresh.h"
 
 #define CELL_HEIGHT                     55.f
 
-@implementation PlaceAroundTableView
+@implementation MapPoiTableView
 {
     UITableView *_tableView;
     // Poi搜索结果数组
@@ -119,8 +119,17 @@
         // 刷新TableView第一行数据
         NSIndexPath *reloadIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [_tableView reloadRowsAtIndexPaths:@[reloadIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
+        // 刷新后TableView返回顶部
+        [_tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+        
+        NSString *city = response.regeocode.addressComponent.city;
+        [self.delegate setCurrentCity:city];
+        
+        [_delegate setSendButtonEnabledAfterLoadFinished];
     }
 }
+
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
     // 刷新POI后默认第一行为打勾状态
