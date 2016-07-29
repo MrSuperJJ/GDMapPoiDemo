@@ -104,6 +104,7 @@
 #pragma mark - AMapSearchDelegate
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
+    NSLog(@"response.regeocode:%@",response.regeocode);
     if (response.regeocode != nil) {
         // 去掉逆地理编码结果的省份和城市
         NSString *address = response.regeocode.formattedAddress;
@@ -119,7 +120,7 @@
         // 刷新TableView第一行数据
         NSIndexPath *reloadIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [_tableView reloadRowsAtIndexPaths:@[reloadIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-        
+        NSLog(@"_selectedPoi.name:%@",_selectedPoi.name);
         // 刷新后TableView返回顶部
         [_tableView setContentOffset:CGPointMake(0, 0) animated:NO];
         
