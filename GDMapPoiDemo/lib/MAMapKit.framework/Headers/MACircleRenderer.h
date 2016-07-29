@@ -19,7 +19,7 @@
  @param circle 指定的MACircle model
  @return 生成的Renderer
  */
-- (id)initWithCircle:(MACircle *)circle;
+- (instancetype)initWithCircle:(MACircle *)circle;
 
 /*!
  @brief 关联的MAcirlce model

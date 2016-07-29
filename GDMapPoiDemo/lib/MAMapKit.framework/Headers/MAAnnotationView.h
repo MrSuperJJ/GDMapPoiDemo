@@ -37,6 +37,11 @@ typedef NS_ENUM(NSInteger, MAAnnotationViewDragState) {
 @property (nonatomic, readonly) NSString *reuseIdentifier;
 
 /*!
+ @brief z值，大值在上，默认为0。
+ */
+@property (nonatomic, assign) NSInteger zIndex;
+
+/*!
  @brief 当从reuse队列里取出时被调用
  */
 - (void)prepareForReuse;
@@ -85,12 +90,12 @@ typedef NS_ENUM(NSInteger, MAAnnotationViewDragState) {
 /*!
  @brief 显示在气泡左侧的view
  */
-@property (retain, nonatomic) UIView *leftCalloutAccessoryView;
+@property (nonatomic, strong) UIView *leftCalloutAccessoryView;
 
 /*!
  @brief 显示在气泡右侧的view
  */
-@property (retain, nonatomic) UIView *rightCalloutAccessoryView;
+@property (nonatomic, strong) UIView *rightCalloutAccessoryView;
 
 /*!
  @brief 是否支持拖动,默认为NO
@@ -102,5 +107,6 @@ typedef NS_ENUM(NSInteger, MAAnnotationViewDragState) {
  */
 @property (nonatomic) MAAnnotationViewDragState dragState;
 - (void)setDragState:(MAAnnotationViewDragState)newDragState animated:(BOOL)animated;
+
 
 @end

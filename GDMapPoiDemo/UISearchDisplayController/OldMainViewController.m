@@ -56,6 +56,8 @@
     NSString *_city;
     // 下拉更多请求数据的标记
     BOOL isFromMoreLoadRequest;
+    // 关闭searchDisplayController的标记
+    BOOL shouldCloseSearchDisplayController;
 }
 
 - (void)viewDidLoad {
@@ -158,8 +160,6 @@
     }
     else{
         [_searchResultArray removeAllObjects];
-        // 刷新后TableView返回顶部
-        [_searchDisplayController.searchResultsTableView setContentOffset:CGPointMake(0, 0) animated:NO];
     }
     // 刷新完成,没有数据时不显示footer
     if (response.pois.count == 0) {
@@ -244,6 +244,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    shouldCloseSearchDisplayController = YES;
     [self setSelectedLocationWithLocation:_searchResultArray[indexPath.row]];
     [_searchDisplayController setActive:NO];
 }
@@ -251,7 +252,14 @@
 #pragma mark - UISearchDisplayDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    _searchAPI.delegate = self;
+    /**
+     *  此处增加标记位是因为执行didSelectRowAtIndexPath后会执行本方法，
+     *  而此时_searchAPI.delegate应赋值给_tableView
+     */
+    if (!shouldCloseSearchDisplayController) {
+        _searchAPI.delegate = self;
+    }
+    shouldCloseSearchDisplayController = NO;
     NSLog(@"searchDisplayController:%@",_searchAPI.delegate);
     _searchString = controller.searchBar.text;
     searchPage = 1;
@@ -346,6 +354,7 @@
 // 搜索中心点坐标周围的POI-AMapGeoPoint
 - (void)searchPoiByAMapGeoPoint:(AMapGeoPoint *)location
 {
+    NSLog(@"搜索中心点坐标周围的POI:%@",location.description);
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     request.location = location;
     // 搜索半径
@@ -360,6 +369,7 @@
 // 搜索逆向地理编码-AMapGeoPoint
 - (void)searchReGeocodeWithAMapGeoPoint:(AMapGeoPoint *)location
 {
+    NSLog(@"搜索逆向地理编码:%@",location.description);
     AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
     regeo.location = location;
     // 返回扩展信息

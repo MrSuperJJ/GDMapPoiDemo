@@ -77,6 +77,12 @@ typedef NS_ENUM(NSInteger, MAUserTrackingMode)
  */
 @property (nonatomic, readonly) BOOL isAbroad;
 
+/**
+ *  是否允许对annotationView根据zIndex进行排序，默认为YES。
+ *  当annotationView数量比较大时可能会引起性能问题，可以设置此属性为NO。
+ */
+@property (nonatomic, assign) BOOL allowsAnnotationViewSorting;
+
 #pragma mark - Logo
 
 /*!
@@ -215,19 +221,19 @@ typedef NS_ENUM(NSInteger, MAUserTrackingMode)
 #pragma mark - Zoom
 
 /*!
- @brief 缩放级别
+ @brief 缩放级别, [3, 20]
  */
 @property (nonatomic, assign) double zoomLevel;
 
 /*!
- @brief 最小缩放级别
+ @brief 最小缩放级别, 最小值为3
  */
-@property (nonatomic, readonly) double minZoomLevel;
+@property (nonatomic, assign) double minZoomLevel;
 
 /*!
- @brief 最大缩放级别
+ @brief 最大缩放级别，最大值为20
  */
-@property (nonatomic, readonly) double maxZoomLevel;
+@property (nonatomic, assign) double maxZoomLevel;
 
 /*!
  @brief 设置当前地图的缩放级别zoom level
@@ -243,6 +249,7 @@ typedef NS_ENUM(NSInteger, MAUserTrackingMode)
  @param animated 是否采用动画效果
  */
 - (void)setZoomLevel:(double)newZoomLevel atPivot:(CGPoint)pivot animated:(BOOL)animated;
+
 
 #pragma mark - Conversions
 
@@ -426,13 +433,13 @@ typedef NS_ENUM(NSInteger, MAUserTrackingMode)
 - (MAOverlayView *)viewForOverlay:(id <MAOverlay>)overlay __attribute__ ((deprecated("use - (MAOverlayRenderer *)rendererForOverlay:(id <MAOverlay>)overlay instead")));
 
 /*!
- @brief 向地图窗口添加Overlay，需要实现MAMapViewDelegate的-mapView:rendererForOverlay:函数来生成标注对应的Renderer
+ @brief 向地图添加Overlay，需要实现MAMapViewDelegate的-mapView:rendererForOverlay:函数来生成标注对应的Renderer
  @param overlay 要添加的overlay
  */
 - (void)addOverlay:(id <MAOverlay>)overlay;
 
 /*!
- @brief 向地图窗口添加一组Overlay，需要实现BMKMapViewDelegate的-mapView:rendererForOverlay:函数来生成标注对应的Renderer
+ @brief 向地图添加一组Overlay，需要实现MAMapViewDelegate的-mapView:rendererForOverlay:函数来生成标注对应的Renderer
  @param overlays 要添加的overlay数组
  */
 - (void)addOverlays:(NSArray *)overlays;

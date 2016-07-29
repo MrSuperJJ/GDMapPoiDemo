@@ -104,7 +104,6 @@
 #pragma mark - AMapSearchDelegate
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
-    NSLog(@"response.regeocode:%@",response.regeocode);
     if (response.regeocode != nil) {
         // 去掉逆地理编码结果的省份和城市
         NSString *address = response.regeocode.formattedAddress;

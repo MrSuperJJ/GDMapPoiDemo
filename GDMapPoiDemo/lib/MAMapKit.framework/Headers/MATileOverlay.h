@@ -18,7 +18,7 @@
  @param URLTemplate是一个包含"{x}","{y}","{z}","{scale}"的字符串,"{x}","{y}","{z}","{scale}"会被tile path的值所替换，并生成用来加载tile图片数据的URL 。例如： http://server/path?x={x}&y={y}&z={z}&scale={scale}。
  @return 以指定的URLTemplate字符串生成tileOverlay
  */
-- (id)initWithURLTemplate:(NSString *)URLTemplate;
+- (instancetype)initWithURLTemplate:(NSString *)URLTemplate;
 
 /*!
  @brief 默认tileSize 256x256

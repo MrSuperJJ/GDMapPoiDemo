@@ -16,12 +16,12 @@
 /*!
  @brief 填充颜色,默认是[UIColor colorWithRed:0 green:1 blue:0 alpha:0.6]
  */
-@property (retain) UIColor *fillColor;
+@property (strong) UIColor *fillColor;
 
 /*!
  @brief 笔触颜色,默认是[UIColor colorWithRed:1 green:0 blue:0 alpha:0.6]
  */
-@property (retain) UIColor *strokeColor;
+@property (strong) UIColor *strokeColor;
 
 /*!
  @brief 笔触宽度,默认是0

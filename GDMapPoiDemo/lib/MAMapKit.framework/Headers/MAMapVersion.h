@@ -11,11 +11,11 @@
 #ifndef MAMapVersion_h
 #define MAMapVersion_h
 
-#define MAMapVersionNumber          40000
-#define AMapFoundationVersionMinRequired 10000
+#define MAMapVersionNumber                40101
+#define MAMapMinRequiredFoundationVersion 10100
 
 // 依赖库版本检测
-#if AMapFoundationVersionNumber < AMapFoundationVersionMinRequired
+#if AMapFoundationVersionNumber < MAMapMinRequiredFoundationVersion
 #error "The AMapFoundationKit version is less than minimum required, please update! Any questions please to visit http://lbs.amap.com"
 #endif
 

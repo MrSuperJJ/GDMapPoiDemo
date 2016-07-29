@@ -24,6 +24,6 @@
  @param groundOverlay 制定了覆盖图片，以及图片的覆盖区域的groundOverlay
  @return 以GroundOverlay新生成Renderer
  */
-- (id)initWithGroundOverlay:(MAGroundOverlay *)groundOverlay;
+- (instancetype)initWithGroundOverlay:(MAGroundOverlay *)groundOverlay;
 
 @end
