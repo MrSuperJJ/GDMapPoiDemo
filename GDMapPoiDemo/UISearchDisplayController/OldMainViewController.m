@@ -62,7 +62,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"地图";
+    self.title = @"地图-DisplayController";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendLocation)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     // 使用通知中心监听kReachabilityChangedNotification通知

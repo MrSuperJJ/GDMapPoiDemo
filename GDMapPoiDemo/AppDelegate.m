@@ -30,7 +30,7 @@
     UINavigationController *navigationController;
     UIViewController *mainViewController;
     // iOS8.4中UISearchController无法显示(目测是iOS的BUG),因此需要替换为UISearchDisplayController+UISearchBar
-    mainViewController = !isNotVersion84 ? [[MainViewController alloc] init] : [[OldMainViewController alloc] init];
+    mainViewController = isNotVersion84 ? [[MainViewController alloc] init] : [[OldMainViewController alloc] init];
     navigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"地图";
+    self.title = @"地图-SearchController";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendLocation)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     // 使用通知中心监听kReachabilityChangedNotification通知
@@ -172,6 +172,21 @@
 }
 
 #pragma mark - UISearchBarDelegate
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    if (_searchController.searchBar) {
+        [_searchController.searchBar removeFromSuperview];
+    }
+}
+
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    if (_searchController.searchBar) {
+        [_searchController.searchBar removeFromSuperview];
+    }
+    return YES;
+}
 
 #pragma mark - SearchResultTableVCDelegate
 - (void)setSelectedLocationWithLocation:(AMapPOI *)poi
@@ -236,10 +251,27 @@
     _searchResultTableVC.delegate = self;
     _searchController = [[UISearchController alloc] initWithSearchResultsController:_searchResultTableVC];
     _searchController.searchResultsUpdater = _searchResultTableVC;
-    [self.view addSubview:_searchController.searchBar];
-    _searchController.searchBar.delegate = self;
-    // 解决searchbar无法置顶的问题
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    int SearchBarStyle = 2;
+    switch (SearchBarStyle) {
+        case 0:  // 放在NavigationBar底部
+            [self.view addSubview:_searchController.searchBar];
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+            break;
+        case 1:  // 点击搜索按钮显示SearchBar
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStylePlain target:self action:@selector(searchAction)];
+            self.navigationItem.rightBarButtonItem = nil;
+            _searchController.searchBar.delegate = self;
+            break;
+        case 2:  // 放在NavigationBar内部
+            _searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+            _searchController.hidesNavigationBarDuringPresentation = NO;
+            self.navigationItem.titleView = _searchController.searchBar;
+            self.definesPresentationContext = YES;
+        default:
+            break;
+    }
+
     
 }
 
@@ -324,6 +356,15 @@
         [_HUD removeFromSuperview];
         _HUD = nil;
     }];
+    
+}
+
+
+- (void)searchAction
+{
+    [self.navigationController.navigationBar addSubview:_searchController.searchBar];
+    _searchController.searchBar.showsCancelButton = YES;
+    _searchController.hidesNavigationBarDuringPresentation = NO;
     
 }
 
