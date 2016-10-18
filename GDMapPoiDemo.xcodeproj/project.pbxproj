@@ -481,6 +481,7 @@
 				TargetAttributes = {
 					46FAE10F1D11402500EF950D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = RAT87H825N;
 					};
 					46FAE1281D11402600EF950D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -715,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = RAT87H825N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GDMapPoiDemo/lib",
@@ -733,6 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = RAT87H825N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GDMapPoiDemo/lib",
