@@ -9,9 +9,9 @@
 #ifndef SearchV3Demo_APIKey_h
 #define SearchV3Demo_APIKey_h
 
-/* 使用高德地图API，请注册Key，注册地址：http://lbs.amap.com/console/key */
+/* 使用高德地图API，请注册Key，注册地址：http://lbs.amap.com/dev/key/app */
 
-const static NSString *APIKey = @"5f682486b1e8c4777ba448df2cb457c6";
+const static NSString *APIKey = @"5a378f2a3a71389b7c6dd379ee6b1520";
 
 const static NSString *TableID = @"";
 

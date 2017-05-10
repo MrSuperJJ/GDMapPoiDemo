@@ -10,7 +10,6 @@
 		462E49721D4B6FC2005FD5C0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 462E49661D4B6FC2005FD5C0 /* MainViewController.m */; };
 		462E49741D4B6FC2005FD5C0 /* SearchResultTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 462E496A1D4B6FC2005FD5C0 /* SearchResultTableVC.m */; };
 		462E497A1D4B7037005FD5C0 /* OldMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 462E49791D4B7037005FD5C0 /* OldMainViewController.m */; };
-		462E49851D4BA648005FD5C0 /* MapPoiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462E49841D4BA648005FD5C0 /* MapPoiTableView.m */; };
 		463F00B31D12572600862CB4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 463F00891D12572600862CB4 /* MJRefreshAutoFooter.m */; };
 		463F00B41D12572600862CB4 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 463F008B1D12572600862CB4 /* MJRefreshBackFooter.m */; };
 		463F00B51D12572600862CB4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 463F008D1D12572600862CB4 /* MJRefreshComponent.m */; };
@@ -35,8 +34,6 @@
 		46FAE11E1D11402500EF950D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FAE11C1D11402500EF950D /* Main.storyboard */; };
 		46FAE1201D11402500EF950D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FAE11F1D11402500EF950D /* Assets.xcassets */; };
 		46FAE1231D11402500EF950D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FAE1211D11402500EF950D /* LaunchScreen.storyboard */; };
-		46FAE12E1D11402600EF950D /* GDMapPoiDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE12D1D11402600EF950D /* GDMapPoiDemoTests.m */; };
-		46FAE1391D11402600EF950D /* GDMapPoiDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1381D11402600EF950D /* GDMapPoiDemoUITests.m */; };
 		46FAE1781D11426C00EF950D /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE1481D11426C00EF950D /* AMapFoundationKit.framework */; };
 		46FAE1791D11426C00EF950D /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE1491D11426C00EF950D /* AMapSearchKit.framework */; };
 		46FAE17A1D11426C00EF950D /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE14A1D11426C00EF950D /* MAMapKit.framework */; };
@@ -49,27 +46,11 @@
 		46FAE19B1D1142E700EF950D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE19A1D1142E700EF950D /* libz.tbd */; };
 		46FAE19D1D1142F200EF950D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE19C1D1142F200EF950D /* libc++.tbd */; };
 		46FAE19F1D1142F700EF950D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FAE19E1D1142F700EF950D /* Security.framework */; };
-		46FAE1A71D11438100EF950D /* LocationDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1A21D11438100EF950D /* LocationDetailVC.m */; };
 		46FAE1B21D114A9000EF950D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1B11D114A9000EF950D /* Reachability.m */; };
 		46FAE1B61D114B3C00EF950D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAE1B51D114B3C00EF950D /* MBProgressHUD.m */; };
+		C7A671CC1EC31365002AC90A /* LocationDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A671C91EC31365002AC90A /* LocationDetailVC.m */; };
+		C7A671CD1EC31365002AC90A /* MapPoiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A671CB1EC31365002AC90A /* MapPoiTableView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		46FAE12A1D11402600EF950D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 46FAE1081D11402500EF950D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 46FAE10F1D11402500EF950D;
-			remoteInfo = GDMapPoiDemo;
-		};
-		46FAE1351D11402600EF950D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 46FAE1081D11402500EF950D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 46FAE10F1D11402500EF950D;
-			remoteInfo = GDMapPoiDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		462E49651D4B6FC2005FD5C0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -78,8 +59,6 @@
 		462E496A1D4B6FC2005FD5C0 /* SearchResultTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableVC.m; sourceTree = "<group>"; };
 		462E49781D4B7037005FD5C0 /* OldMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldMainViewController.h; sourceTree = "<group>"; };
 		462E49791D4B7037005FD5C0 /* OldMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldMainViewController.m; sourceTree = "<group>"; };
-		462E49831D4BA648005FD5C0 /* MapPoiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoiTableView.h; sourceTree = "<group>"; };
-		462E49841D4BA648005FD5C0 /* MapPoiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoiTableView.m; sourceTree = "<group>"; };
 		463F00881D12572600862CB4 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		463F00891D12572600862CB4 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		463F008A1D12572600862CB4 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -127,12 +106,6 @@
 		46FAE11F1D11402500EF950D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46FAE1221D11402500EF950D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46FAE1241D11402500EF950D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46FAE1291D11402600EF950D /* GDMapPoiDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDMapPoiDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		46FAE12D1D11402600EF950D /* GDMapPoiDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMapPoiDemoTests.m; sourceTree = "<group>"; };
-		46FAE12F1D11402600EF950D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46FAE1341D11402600EF950D /* GDMapPoiDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDMapPoiDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		46FAE1381D11402600EF950D /* GDMapPoiDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDMapPoiDemoUITests.m; sourceTree = "<group>"; };
-		46FAE13A1D11402600EF950D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46FAE1481D11426C00EF950D /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		46FAE1491D11426C00EF950D /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		46FAE14A1D11426C00EF950D /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
@@ -146,12 +119,14 @@
 		46FAE19C1D1142F200EF950D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		46FAE19E1D1142F700EF950D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		46FAE1A01D11438100EF950D /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIKey.h; path = ../APIKey.h; sourceTree = "<group>"; };
-		46FAE1A11D11438100EF950D /* LocationDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailVC.h; sourceTree = "<group>"; };
-		46FAE1A21D11438100EF950D /* LocationDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailVC.m; sourceTree = "<group>"; };
 		46FAE1B01D114A9000EF950D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		46FAE1B11D114A9000EF950D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		46FAE1B41D114B3C00EF950D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		46FAE1B51D114B3C00EF950D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C7A671C81EC31365002AC90A /* LocationDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailVC.h; sourceTree = "<group>"; };
+		C7A671C91EC31365002AC90A /* LocationDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailVC.m; sourceTree = "<group>"; };
+		C7A671CA1EC31365002AC90A /* MapPoiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoiTableView.h; sourceTree = "<group>"; };
+		C7A671CB1EC31365002AC90A /* MapPoiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoiTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,20 +146,6 @@
 				46FAE17A1D11426C00EF950D /* MAMapKit.framework in Frameworks */,
 				46FAE1791D11426C00EF950D /* AMapSearchKit.framework in Frameworks */,
 				46FAE1781D11426C00EF950D /* AMapFoundationKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46FAE1261D11402600EF950D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46FAE1311D11402600EF950D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				46FAE1121D11402500EF950D /* GDMapPoiDemo */,
-				46FAE1371D11402600EF950D /* GDMapPoiDemoUITests */,
 				46FAE1111D11402500EF950D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -317,8 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				46FAE1101D11402500EF950D /* GDMapPoiDemo.app */,
-				46FAE1291D11402600EF950D /* GDMapPoiDemoTests.xctest */,
-				46FAE1341D11402600EF950D /* GDMapPoiDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,12 +286,9 @@
 			children = (
 				46FAE1161D11402500EF950D /* AppDelegate.h */,
 				46FAE1171D11402500EF950D /* AppDelegate.m */,
-				46FAE1A11D11438100EF950D /* LocationDetailVC.h */,
-				46FAE1A21D11438100EF950D /* LocationDetailVC.m */,
-				462E49831D4BA648005FD5C0 /* MapPoiTableView.h */,
-				462E49841D4BA648005FD5C0 /* MapPoiTableView.m */,
 				462E49641D4B6FC2005FD5C0 /* UISearchController */,
 				462E496B1D4B6FC2005FD5C0 /* UISearchDisplayController */,
+				C7A671C71EC31365002AC90A /* common */,
 				46FAE1471D11424800EF950D /* lib */,
 				46FAE1131D11402500EF950D /* Supporting Files */,
 			);
@@ -353,32 +308,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		46FAE12C1D11402600EF950D /* GDMapPoiDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				46FAE12D1D11402600EF950D /* GDMapPoiDemoTests.m */,
-				46FAE12F1D11402600EF950D /* Info.plist */,
-			);
-			name = GDMapPoiDemoTests;
-			path = ../../GDMapPoiDemoTests;
-			sourceTree = "<group>";
-		};
-		46FAE1371D11402600EF950D /* GDMapPoiDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				46FAE1381D11402600EF950D /* GDMapPoiDemoUITests.m */,
-				46FAE13A1D11402600EF950D /* Info.plist */,
-			);
-			path = GDMapPoiDemoUITests;
-			sourceTree = "<group>";
-		};
 		46FAE1471D11424800EF950D /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				463F00861D12572600862CB4 /* MJRefresh */,
 				46FAE1B31D114B3C00EF950D /* MBProgressHUD */,
 				46FAE1AF1D114A9000EF950D /* Reachability */,
-				46FAE12C1D11402600EF950D /* GDMapPoiDemoTests */,
 				46FAE1A01D11438100EF950D /* APIKey.h */,
 				46FAE19C1D1142F200EF950D /* libc++.tbd */,
 				46FAE19A1D1142E700EF950D /* libz.tbd */,
@@ -414,6 +349,17 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		C7A671C71EC31365002AC90A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C7A671C81EC31365002AC90A /* LocationDetailVC.h */,
+				C7A671C91EC31365002AC90A /* LocationDetailVC.m */,
+				C7A671CA1EC31365002AC90A /* MapPoiTableView.h */,
+				C7A671CB1EC31365002AC90A /* MapPoiTableView.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,42 +380,6 @@
 			productReference = 46FAE1101D11402500EF950D /* GDMapPoiDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		46FAE1281D11402600EF950D /* GDMapPoiDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46FAE1401D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoTests" */;
-			buildPhases = (
-				46FAE1251D11402600EF950D /* Sources */,
-				46FAE1261D11402600EF950D /* Frameworks */,
-				46FAE1271D11402600EF950D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				46FAE12B1D11402600EF950D /* PBXTargetDependency */,
-			);
-			name = GDMapPoiDemoTests;
-			productName = GDMapPoiDemoTests;
-			productReference = 46FAE1291D11402600EF950D /* GDMapPoiDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		46FAE1331D11402600EF950D /* GDMapPoiDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46FAE1431D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoUITests" */;
-			buildPhases = (
-				46FAE1301D11402600EF950D /* Sources */,
-				46FAE1311D11402600EF950D /* Frameworks */,
-				46FAE1321D11402600EF950D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				46FAE1361D11402600EF950D /* PBXTargetDependency */,
-			);
-			name = GDMapPoiDemoUITests;
-			productName = GDMapPoiDemoUITests;
-			productReference = 46FAE1341D11402600EF950D /* GDMapPoiDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -482,16 +392,6 @@
 					46FAE10F1D11402500EF950D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RAT87H825N;
-					};
-					46FAE1281D11402600EF950D = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RAT87H825N;
-						TestTargetID = 46FAE10F1D11402500EF950D;
-					};
-					46FAE1331D11402600EF950D = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RAT87H825N;
-						TestTargetID = 46FAE10F1D11402500EF950D;
 					};
 				};
 			};
@@ -509,8 +409,6 @@
 			projectRoot = "";
 			targets = (
 				46FAE10F1D11402500EF950D /* GDMapPoiDemo */,
-				46FAE1281D11402600EF950D /* GDMapPoiDemoTests */,
-				46FAE1331D11402600EF950D /* GDMapPoiDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -524,20 +422,6 @@
 				46FAE1201D11402500EF950D /* Assets.xcassets in Resources */,
 				463F00C11D12572600862CB4 /* MJRefresh.bundle in Resources */,
 				46FAE11E1D11402500EF950D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46FAE1271D11402600EF950D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46FAE1321D11402600EF950D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,8 +440,8 @@
 				46FAE1B21D114A9000EF950D /* Reachability.m in Sources */,
 				463F00BA1D12572600862CB4 /* MJRefreshAutoStateFooter.m in Sources */,
 				463F00C21D12572600862CB4 /* MJRefreshConst.m in Sources */,
+				C7A671CC1EC31365002AC90A /* LocationDetailVC.m in Sources */,
 				463F00C51D12572600862CB4 /* UIView+MJExtension.m in Sources */,
-				46FAE1A71D11438100EF950D /* LocationDetailVC.m in Sources */,
 				463F00BE1D12572600862CB4 /* MJRefreshGifHeader.m in Sources */,
 				463F00B61D12572600862CB4 /* MJRefreshFooter.m in Sources */,
 				462E497A1D4B7037005FD5C0 /* OldMainViewController.m in Sources */,
@@ -567,7 +451,7 @@
 				46FAE1B61D114B3C00EF950D /* MBProgressHUD.m in Sources */,
 				463F00B51D12572600862CB4 /* MJRefreshComponent.m in Sources */,
 				463F00BD1D12572600862CB4 /* MJRefreshBackStateFooter.m in Sources */,
-				462E49851D4BA648005FD5C0 /* MapPoiTableView.m in Sources */,
+				C7A671CD1EC31365002AC90A /* MapPoiTableView.m in Sources */,
 				463F00B71D12572600862CB4 /* MJRefreshHeader.m in Sources */,
 				463F00B91D12572600862CB4 /* MJRefreshAutoNormalFooter.m in Sources */,
 				462E49721D4B6FC2005FD5C0 /* MainViewController.m in Sources */,
@@ -578,36 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		46FAE1251D11402600EF950D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46FAE12E1D11402600EF950D /* GDMapPoiDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46FAE1301D11402600EF950D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46FAE1391D11402600EF950D /* GDMapPoiDemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		46FAE12B1D11402600EF950D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 46FAE10F1D11402500EF950D /* GDMapPoiDemo */;
-			targetProxy = 46FAE12A1D11402600EF950D /* PBXContainerItemProxy */;
-		};
-		46FAE1361D11402600EF950D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 46FAE10F1D11402500EF950D /* GDMapPoiDemo */;
-			targetProxy = 46FAE1351D11402600EF950D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		46FAE11C1D11402500EF950D /* Main.storyboard */ = {
@@ -725,7 +580,7 @@
 				INFOPLIST_FILE = GDMapPoiDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ye.GDMapPoiDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -744,54 +599,8 @@
 				INFOPLIST_FILE = GDMapPoiDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ye.GDMapPoiDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		46FAE1411D11402600EF950D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GDMapPoiDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GDMapPoiDemo.app/GDMapPoiDemo";
-			};
-			name = Debug;
-		};
-		46FAE1421D11402600EF950D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GDMapPoiDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GDMapPoiDemo.app/GDMapPoiDemo";
-			};
-			name = Release;
-		};
-		46FAE1441D11402600EF950D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = GDMapPoiDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = GDMapPoiDemo;
-			};
-			name = Debug;
-		};
-		46FAE1451D11402600EF950D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = GDMapPoiDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jj.GDMapPoiDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = GDMapPoiDemo;
 			};
 			name = Release;
 		};
@@ -812,24 +621,6 @@
 			buildConfigurations = (
 				46FAE13E1D11402600EF950D /* Debug */,
 				46FAE13F1D11402600EF950D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		46FAE1401D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				46FAE1411D11402600EF950D /* Debug */,
-				46FAE1421D11402600EF950D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		46FAE1431D11402600EF950D /* Build configuration list for PBXNativeTarget "GDMapPoiDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				46FAE1441D11402600EF950D /* Debug */,
-				46FAE1451D11402600EF950D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

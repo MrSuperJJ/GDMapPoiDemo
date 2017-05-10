@@ -252,7 +252,7 @@
     _searchController = [[UISearchController alloc] initWithSearchResultsController:_searchResultTableVC];
     _searchController.searchResultsUpdater = _searchResultTableVC;
     
-    int SearchBarStyle = 2;
+    int SearchBarStyle = 0;
     switch (SearchBarStyle) {
         case 0:  // 放在NavigationBar底部
             [self.view addSubview:_searchController.searchBar];
