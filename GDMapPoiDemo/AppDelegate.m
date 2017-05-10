@@ -10,10 +10,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "OldMainViewController.h"
-#import "APIKey.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
-
-
 
 @interface AppDelegate ()
 
@@ -34,7 +31,9 @@
     navigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
-    [self configureAPIKey];
+    
+    // 配置高德地图SDK的AppKey，在http://lbs.amap.com/dev/key申请
+    [AMapServices sharedServices].apiKey = @"5a378f2a3a71389b7c6dd379ee6b1520";
     return YES;
 }
 
@@ -60,18 +59,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)configureAPIKey
-{
-    if ([APIKey length] == 0)
-    {
-        NSString *reason = [NSString stringWithFormat:@"apiKey为空，请检查key是否正确设置。"];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:reason delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        [alert show];
-    }
-    
-    [AMapServices sharedServices].apiKey = (NSString *)APIKey;
-}
 
 @end

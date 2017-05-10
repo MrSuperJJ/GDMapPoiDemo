@@ -1,0 +1,32 @@
+PODS:
+  - AMap2DMap-NO-IDFA (4.6.0):
+    - AMapFoundation-NO-IDFA (~> 1.3)
+  - AMapFoundation-NO-IDFA (1.4.0)
+  - AMapLocation-NO-IDFA (2.3.1):
+    - AMapFoundation-NO-IDFA (~> 1.3)
+  - AMapSearch-NO-IDFA (5.0.0):
+    - AMapFoundation-NO-IDFA (~> 1.2)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
+  - Reachability (3.2)
+
+DEPENDENCIES:
+  - AMap2DMap-NO-IDFA
+  - AMapLocation-NO-IDFA
+  - AMapSearch-NO-IDFA
+  - MBProgressHUD
+  - MJRefresh
+  - Reachability
+
+SPEC CHECKSUMS:
+  AMap2DMap-NO-IDFA: 01c80e7e93568617b1b1b452cfec71f974f5bc8a
+  AMapFoundation-NO-IDFA: d1ba541a56737c2048115a745b1dfcbe9901c248
+  AMapLocation-NO-IDFA: 7df5ab4b618d96665551afb0c6426f79db72a4a6
+  AMapSearch-NO-IDFA: 8fb4e844c27031f6791d5edce16fdd2a5cfac028
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+
+PODFILE CHECKSUM: 1c6390593acb13b4454d6c5d9a6f6cd9b860f36a
+
+COCOAPODS: 1.2.1
